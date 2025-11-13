@@ -333,8 +333,8 @@ MonoBehaviour:
   cameraSpeed: 10
   maxpitch: 60
   minpitch: -60
-  speed: 10
-  runningMultiplier: 2
+  speed: 5
+  runningMultiplier: 1.5
   canControlMovementMidAir: 1
   groundCheckPoint: {fileID: 6469462714728622801}
   groundLayer:
