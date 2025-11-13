@@ -9,14 +9,14 @@ public class Portal : MonoBehaviour
 
     public void Update()
     {
-        Vector3 i_position = virtualPortal.InverseTransformPoint(Camera.main.transform.position);
-        otherPortal.camera.transform.position = otherPortal.transform.TransformPoint(i_position);
+        Vector3 position = virtualPortal.InverseTransformPoint(Camera.main.transform.position);
+        otherPortal.camera.transform.position = otherPortal.transform.TransformPoint(position);
 
-        Vector3 i_direction = virtualPortal.InverseTransformDirection(Camera.main.transform.forward);
-        otherPortal.camera.transform.forward = otherPortal.transform.TransformDirection(i_direction);
+        Vector3 direction = virtualPortal.InverseTransformDirection(Camera.main.transform.forward);
+        otherPortal.camera.transform.forward = otherPortal.transform.TransformDirection(direction);
 
-        /*float distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        camera.nearClipPlane = Mathf.Max(0.01f, distance);*/
+        float distance = Vector3.Distance(transform.position, Camera.main.transform.position);
+        otherPortal.camera.nearClipPlane = Mathf.Max(0.01f, distance);
     }
 
     public void OnTriggerEnter(Collider other)
