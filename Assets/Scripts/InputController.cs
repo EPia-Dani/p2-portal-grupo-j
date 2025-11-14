@@ -11,9 +11,9 @@ public class InputController : MonoBehaviour
 
     [HideInInspector] public bool run;
 
-    [HideInInspector] public bool shoot;
+    [HideInInspector] public bool button1;
 
-    [HideInInspector] public bool reload;
+    [HideInInspector] public bool button2;
 
     public void OnMove(InputValue value)
     {
@@ -35,13 +35,13 @@ public class InputController : MonoBehaviour
         jump = value.isPressed;
     }
 
-    public void OnAttack(InputValue value)
+    public void OnButton1(InputValue value)
     {
-        shoot = !shoot;
+        button1 = !button1;
     }
 
-    public void OnReload(InputValue value)
+    public void OnButton2(InputValue value)
     {
-        reload = value.isPressed;
+        button2 = !button2;
     }
 }

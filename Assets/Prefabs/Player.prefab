@@ -396,8 +396,8 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   run: 0
-  shoot: 0
-  reload: 0
+  button1: 0
+  button2: 0
 --- !u!114 &3082813212356901025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +445,10 @@ MonoBehaviour:
     type: 3}
   orangePortalPrefab: {fileID: 8549628183705442176, guid: b2d5a4e491e0c964bb41e207056c938a,
     type: 3}
-  attachPosition: {fileID: 0}
+  attachPosition: {fileID: 8484314856208442871}
+  portalGunDistance: 0
+  gravityGunDistance: 1000
+  gravityGunForce: 3
 --- !u!1 &8464884497542991541
 GameObject:
   m_ObjectHideFlags: 0

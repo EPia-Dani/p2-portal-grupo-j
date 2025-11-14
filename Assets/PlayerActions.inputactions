@@ -25,10 +25,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire",
+                    "name": "Button1",
                     "type": "Button",
                     "id": "e17cd592-1727-45d2-b746-07c4b810087d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Button2",
+                    "type": "Button",
+                    "id": "1defd807-520e-4e6c-8597-7eb6eb7cab8e",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -216,7 +225,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Fire",
+                    "action": "Button1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -227,7 +236,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Fire",
+                    "action": "Button1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -238,7 +247,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "Fire",
+                    "action": "Button1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -249,7 +258,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Fire",
+                    "action": "Button1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -260,7 +269,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Fire",
+                    "action": "Button1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -272,6 +281,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aeb2d5ad-b3c1-45fd-a8ab-bf0b4c5ca39a",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Button2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
