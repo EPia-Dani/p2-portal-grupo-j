@@ -57,7 +57,7 @@ namespace Turrets
                     }
                     else if (hitObj.CompareTag("Turret"))
                     {
-                        hitObj.GetComponent<Turret>().Deactivate();
+                        hitObj.transform.parent.GetComponent<Turret>().Deactivate();
                     }
                 }
                 else

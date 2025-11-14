@@ -150,7 +150,6 @@ public class PortalGun : MonoBehaviour
         bool isValid = true;
         Vector3 playerCameraPos = Camera.main.transform.position;
 
-        /*
         for (int i = 0; i < validPoints.Count; i++)
         {
             Vector3 l_direction = validPoints[i].position - playerCameraPos;
@@ -188,8 +187,6 @@ public class PortalGun : MonoBehaviour
                 isValid = false;
             }
         }
-        */
         return isValid;
-        
     }
 }
