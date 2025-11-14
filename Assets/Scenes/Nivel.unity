@@ -23709,6 +23709,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4624639830876821063, guid: bfec13fe138399f42884411b2593bfab,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624639830876821063, guid: bfec13fe138399f42884411b2593bfab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624639830876821063, guid: bfec13fe138399f42884411b2593bfab,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624639830876821063, guid: bfec13fe138399f42884411b2593bfab,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.369818
       objectReference: {fileID: 0}
@@ -23784,6 +23799,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BotonPresion
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449833680047056917, guid: 29ada0f6124b5b745937ae3a0ea46298,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449833680047056917, guid: 29ada0f6124b5b745937ae3a0ea46298,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449833680047056917, guid: 29ada0f6124b5b745937ae3a0ea46298,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5449833680047056917, guid: 29ada0f6124b5b745937ae3a0ea46298,
         type: 3}
