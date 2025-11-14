@@ -8,8 +8,8 @@ public class PortalGun : MonoBehaviour
     public static Portal bluePortal;
     public static Portal orangePortal;
     [SerializeField] private List<Transform> validPoints;
-    private float m_ValidPointOffset = 0.03f;
-    private float m_MaxValidAngle = 5.0f;
+    private float validPointOffset = 0.03f;
+    private float maxValidAngle = 5.0f;
 
     [SerializeField] private Transform attachPosition;
 
@@ -153,22 +153,22 @@ public class PortalGun : MonoBehaviour
         /*
         for (int i = 0; i < validPoints.Count; i++)
         {
-            Vector3 l_direction = validPoints[i].position - playerCameraPos;
-            float l_distance = l_direction.magnitude;
-            l_direction /= l_distance;
+            Vector3 direction = validPoints[i].position - playerCameraPos;
+            float distance = direction.magnitude;
+            direction /= distance;
 
-            Ray l_ray = new Ray(playerCameraPos, l_direction);
+            Ray ray = new Ray(playerCameraPos, direction);
 
-            if (Physics.Raycast(l_ray, out RaycastHit l_hit, l_distance + m_ValidPointOffset, m_ValidLayerMask.value))
+            if (Physics.Raycast(ray, out RaycastHit hit, distance + validPointOffset))
             {
-                if (l_hit.collider.CompareTag("Printable"))
+                if (hit.collider.CompareTag("Printable"))
                 {
-                    float l_distanceToHitPoint = (l_hit.point - validPoints[i].position).magnitude;
+                    float distanceToHitPoint = (hit.point - validPoints[i].position).magnitude;
 
-                    if (l_distanceToHitPoint < m_ValidPointOffset)
+                    if (distanceToHitPoint < validPointOffset)
                     {
-                        float l_dotAngle = Vector3.Dot(l_hit.normal, normal);
-                        if (l_dotAngle < Mathf.Cos(m_MaxValidAngle * Mathf.Deg2Rad))
+                        float dotAngle = Vector3.Dot(hit.normal, normal);
+                        if (dotAngle < Mathf.Cos(maxValidAngle * Mathf.Deg2Rad))
                         {
                             isValid = false;
                         }
