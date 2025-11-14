@@ -37,11 +37,11 @@ public class InputController : MonoBehaviour
 
     public void OnButton1(InputValue value)
     {
-        button1 = !button1;
+        button1 = value.isPressed;
     }
 
     public void OnButton2(InputValue value)
     {
-        button2 = !button2;
+        button2 = value.isPressed;
     }
 }

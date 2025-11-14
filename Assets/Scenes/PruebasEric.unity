@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 567947778}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,6 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21fa3b588c0f11e478c2257c8f2a9da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canTeleport: 0
 --- !u!65 &567947774
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -748,15 +749,40 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4561779382699824495, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
+        type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4805203840455101411, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
         type: 3}
       propertyPath: groundLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 5233026543145662234, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6976443932848836237, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089382061911986865, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
+        type: 3}
+      propertyPath: distance
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089382061911986865, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
+        type: 3}
+      propertyPath: gravityGunForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230069674486206142, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9190580409652676944, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
         type: 3}

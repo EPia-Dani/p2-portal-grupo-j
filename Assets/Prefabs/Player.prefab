@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2598927471848810007
 Transform:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 7089382061911986865}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -343,7 +343,7 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 4
+  m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -368,7 +368,7 @@ MonoBehaviour:
   minpitch: -60
   speed: 5
   runningMultiplier: 1.5
-  canControlMovementMidAir: 1
+  canControlMovementMidAir: 0
   groundCheckPoint: {fileID: 6469462714728622801}
   groundLayer:
     serializedVersion: 2
@@ -379,7 +379,7 @@ MonoBehaviour:
   terminalVelocity: 30
   jumpHeight: 2
   jumpBufferTime: 0.1
-  doubleGravityWhenFalling: 0
+  doubleGravityWhenFalling: 1
 --- !u!114 &5025542062318163796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,9 +446,9 @@ MonoBehaviour:
   orangePortalPrefab: {fileID: 8549628183705442176, guid: b2d5a4e491e0c964bb41e207056c938a,
     type: 3}
   attachPosition: {fileID: 8484314856208442871}
-  portalGunDistance: 0
-  gravityGunDistance: 1000
-  gravityGunForce: 3
+  distance: 100
+  gravityGunForce: 20
+  attachingSpeed: 20
 --- !u!1 &8464884497542991541
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4a730c45633b64d4e8d1c5266dd66e9a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 4a730c45633b64d4e8d1c5266dd66e9a,
         type: 3}
