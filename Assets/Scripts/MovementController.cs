@@ -152,11 +152,6 @@ public class MovementController : MonoBehaviour, ITeleportable, IDamageable
         isTeleporting = false;
     }
 
-    public void TakeDamage(float damage)
-    {
-        Die();
-    }
-
     public void Die()
     {
         SceneManager.LoadScene(0);

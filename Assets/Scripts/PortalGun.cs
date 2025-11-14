@@ -25,17 +25,42 @@ public class PortalGun : MonoBehaviour
 
     void Update()
     {
-        if (attachedObject) UpdateAttachedObject();
-        if (input.button1)
+        if (attachedObject)
         {
-            AttachObject();
-            input.button1 = false;
+            UpdateAttachedObject();
+            if (input.button1)
+            {
+                ThrowObject(gravityGunForce);
+                input.button1 = false;
+            }
+            if (input.button2)
+            {
+                ThrowObject(0);
+                input.button2 = false;
+            }
         }
-        if (input.button2)
+        else
         {
-            ThrowObject(gravityGunForce);
-            input.button2 = false;
+            if (input.button1 || input.button2)
+            {
+                Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+                Physics.Raycast(ray, out var hit, distance);
+                if (hit.collider.CompareTag("Turret") || hit.collider.CompareTag("Cube"))
+                {
+                    AttachObject(hit.rigidbody);
+                    input.button1 = false;
+                    input.button2 = false;
+                    return;
+                }
+
+                if (input.button1) CreateBluePortal(hit);
+                if (input.button2) CreateOrangePortal(hit);
+
+                input.button1 = false;
+                input.button2 = false;
+            }
         }
+        
     }    
 
     void UpdateAttachedObject()
@@ -66,17 +91,6 @@ public class PortalGun : MonoBehaviour
         }
     }
 
-    private void AttachObject()
-    {
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        if (Physics.Raycast(ray, out RaycastHit hit, distance/*, ShootLayerMask.value*/))
-        {
-            if (hit.collider.CompareTag("Turret") || hit.collider.CompareTag("Cube"))
-            {
-                AttachObject(hit.rigidbody);
-            }
-        }
-    }
     private void AttachObject(Rigidbody rb)
     {
         attachedObject = rb;

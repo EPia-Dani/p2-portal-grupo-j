@@ -7,7 +7,7 @@ namespace Enemies
         private void OnTriggerEnter(Collider other)
         {
             IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
-            damageable?.TakeDamage(9999f);
+            damageable?.Die();
         }
     }
 }
