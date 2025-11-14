@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
+public class MovementController : MonoBehaviour, ITeleportable
 {
     // Camera and rotation
     [Header("Camera")] [SerializeField] private GameObject pitchController;
@@ -39,6 +39,8 @@ public class MovementController : MonoBehaviour
 
     private float verticalVelocity;
     private float yaw, pitch;
+
+    private bool isTeleporting;
 
 
     private void Start()
@@ -124,5 +126,28 @@ public class MovementController : MonoBehaviour
             if (doubleGravityWhenFalling && verticalVelocity < 0) verticalVelocity -= gravity * Time.deltaTime;
             verticalVelocity = Mathf.Min(verticalVelocity, terminalVelocity);
         }
+    }
+
+    public void Teleport(Portal portal)
+    {
+        if (isTeleporting) return;
+
+        characterController.enabled = false;
+        isTeleporting = true;
+
+        Vector3 position = portal.virtualPortal.InverseTransformPoint(transform.position);
+        Vector3 direction = portal.virtualPortal.InverseTransformDirection(transform.forward);
+
+        transform.position = portal.otherPortal.transform.TransformPoint(position);
+        transform.forward = portal.otherPortal.transform.TransformDirection(direction);
+
+        yaw = transform.rotation.eulerAngles.y;
+
+        characterController.enabled = true;
+    }
+
+    public void EndTeleport()
+    {
+        isTeleporting = false;
     }
 }
