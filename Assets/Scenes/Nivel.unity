@@ -23763,6 +23763,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BotonPresion
       objectReference: {fileID: 0}
+    - target: {fileID: 4677659426530423471, guid: 29ada0f6124b5b745937ae3a0ea46298,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5449833680047056917, guid: 29ada0f6124b5b745937ae3a0ea46298,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23812,6 +23817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677916859825455822, guid: 29ada0f6124b5b745937ae3a0ea46298,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9171972604742816062, guid: 29ada0f6124b5b745937ae3a0ea46298,
         type: 3}

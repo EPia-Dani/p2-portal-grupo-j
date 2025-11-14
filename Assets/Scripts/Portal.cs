@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Portal : MonoBehaviour
@@ -6,6 +7,9 @@ public class Portal : MonoBehaviour
     [SerializeField] public Camera camera;
     [SerializeField] public Transform virtualPortal;
     [HideInInspector] public float size;
+    [SerializeField] private List<Transform> validPoints;
+    private float validPointOffset = 0.2f;
+    [SerializeField] private LayerMask printableLayer;
 
     public void Update()
     {
@@ -29,6 +33,34 @@ public class Portal : MonoBehaviour
     public void Close()
     {
         Destroy(gameObject);
+    }
+
+    public bool IsValidPoint()
+    {
+        bool isValid = true;
+        Vector3 playerCameraPos = Camera.main.transform.position;
+
+        for (int i = 0; i < validPoints.Count; i++)
+        {
+            Vector3 direction = validPoints[i].position - playerCameraPos;
+            float distance = direction.magnitude;
+            direction /= distance;
+
+            Ray ray = new Ray(playerCameraPos, direction);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, distance + validPointOffset, printableLayer))
+            {
+                if (!hit.collider.CompareTag("Printable"))
+                {
+                    isValid = false;
+                }
+            }
+            else
+            {
+                isValid = false;
+            }
+        }
+        return isValid;
     }
 
     public void OnTriggerEnter(Collider other)

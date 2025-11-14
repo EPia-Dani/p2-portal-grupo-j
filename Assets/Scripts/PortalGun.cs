@@ -7,9 +7,7 @@ public class PortalGun : MonoBehaviour
     [SerializeField] private GameObject orangePortalPrefab;
     public static Portal bluePortal;
     public static Portal orangePortal;
-    [SerializeField] private List<Transform> validPoints;
-    private float validPointOffset = 0.03f;
-    private float maxValidAngle = 5.0f;
+    
 
     [SerializeField] private Transform attachPosition;
 
@@ -52,15 +50,12 @@ public class PortalGun : MonoBehaviour
                 if (hit.collider.CompareTag("Turret") || hit.collider.CompareTag("Cube"))
                 {
                     AttachObject(hit.rigidbody);
-                    /*input.button1 = false;
-                    input.button2 = false;
-                    return;*/
                 }
 
                 if (hit.collider.CompareTag("Printable"))
                 {
                     if (input.button1) CreateBluePortal(hit);
-                    if (input.button2) CreateOrangePortal(hit);
+                    else if (input.button2) CreateOrangePortal(hit);
                 }
 
                 input.button1 = false;
@@ -136,57 +131,9 @@ public class PortalGun : MonoBehaviour
         if (orangePortal != null) orangePortal.Close();
         GameObject portalGameObject = Instantiate(orangePortalPrefab, hit.point + hit.normal.normalized * .1f, Quaternion.LookRotation(hit.normal));
         orangePortal = portalGameObject.GetComponent<Portal>();
+        if (!orangePortal.IsValidPoint())
         if (bluePortal == null) return;
         bluePortal.otherPortal = orangePortal;
         orangePortal.otherPortal = bluePortal;
-    }
-
-
-    public bool IsValidPoint(Vector3 position, Vector3 normal)
-    {
-        transform.position = position;
-        transform.rotation = Quaternion.LookRotation(normal);
-
-        bool isValid = true;
-        Vector3 playerCameraPos = Camera.main.transform.position;
-
-        for (int i = 0; i < validPoints.Count; i++)
-        {
-            Vector3 direction = validPoints[i].position - playerCameraPos;
-            float distance = direction.magnitude;
-            direction /= distance;
-
-            Ray ray = new Ray(playerCameraPos, direction);
-
-            if (Physics.Raycast(ray, out RaycastHit hit, distance + validPointOffset))
-            {
-                if (hit.collider.CompareTag("Printable"))
-                {
-                    float distanceToHitPoint = (hit.point - validPoints[i].position).magnitude;
-
-                    if (distanceToHitPoint < validPointOffset)
-                    {
-                        float dotAngle = Vector3.Dot(hit.normal, normal);
-                        if (dotAngle < Mathf.Cos(maxValidAngle * Mathf.Deg2Rad))
-                        {
-                            isValid = false;
-                        }
-                    }
-                    else
-                    {
-                        isValid = false;
-                    }
-                }
-                else
-                {
-                    isValid = false;
-                }
-            }
-            else
-            {
-                isValid = false;
-            }
-        }
-        return isValid;
     }
 }
