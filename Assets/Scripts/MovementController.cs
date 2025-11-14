@@ -125,7 +125,7 @@ public class MovementController : MonoBehaviour, ITeleportable, IDamageable
         {
             verticalVelocity -= gravity * Time.deltaTime;
             if (doubleGravityWhenFalling && verticalVelocity < 0) verticalVelocity -= gravity * Time.deltaTime;
-            verticalVelocity = Mathf.Min(verticalVelocity, terminalVelocity);
+            verticalVelocity = Mathf.Max(verticalVelocity, terminalVelocity);
         }
     }
 

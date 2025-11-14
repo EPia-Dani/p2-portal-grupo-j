@@ -7,7 +7,6 @@ public class PortalGun : MonoBehaviour
     [SerializeField] private GameObject orangePortalPrefab;
     public static Portal bluePortal;
     public static Portal orangePortal;
-    
 
     [SerializeField] private Transform attachPosition;
 
@@ -131,7 +130,6 @@ public class PortalGun : MonoBehaviour
         if (orangePortal != null) orangePortal.Close();
         GameObject portalGameObject = Instantiate(orangePortalPrefab, hit.point + hit.normal.normalized * .1f, Quaternion.LookRotation(hit.normal));
         orangePortal = portalGameObject.GetComponent<Portal>();
-        if (!orangePortal.IsValidPoint())
         if (bluePortal == null) return;
         bluePortal.otherPortal = orangePortal;
         orangePortal.otherPortal = bluePortal;
