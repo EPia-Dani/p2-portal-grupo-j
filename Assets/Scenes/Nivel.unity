@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 95224250}
   m_Layer: 0
   m_Name: Plane (2)
-  m_TagString: Untagged
+  m_TagString: Printable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -1769,7 +1769,7 @@ GameObject:
   - component: {fileID: 544549304}
   - component: {fileID: 544549303}
   - component: {fileID: 544549302}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2585,7 +2585,7 @@ GameObject:
   - component: {fileID: 624938694}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: Printable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -2882,7 +2882,7 @@ GameObject:
   - component: {fileID: 649972099}
   m_Layer: 0
   m_Name: Plane (3)
-  m_TagString: Untagged
+  m_TagString: Printable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -5868,7 +5868,7 @@ GameObject:
   - component: {fileID: 1161048595}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Printable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -6377,6 +6377,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4805203840455101411, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
+        type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 6976443932848836237, guid: ea635fed3288f7f4dacc0ba7fe2794e5,
         type: 3}
       propertyPath: m_Name

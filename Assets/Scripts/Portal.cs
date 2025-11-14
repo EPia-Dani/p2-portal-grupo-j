@@ -9,6 +9,7 @@ public class Portal : MonoBehaviour
 
     public void Update()
     {
+        if (otherPortal == null) return;
         Vector3 position = virtualPortal.InverseTransformPoint(Camera.main.transform.position);
         otherPortal.camera.transform.position = otherPortal.transform.TransformPoint(position);
 

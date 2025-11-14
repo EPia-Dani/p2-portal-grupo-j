@@ -372,7 +372,7 @@ MonoBehaviour:
   groundCheckPoint: {fileID: 6469462714728622801}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 64
   checkRadius: 0.2
   isGrounded: 0
   gravity: 9.8

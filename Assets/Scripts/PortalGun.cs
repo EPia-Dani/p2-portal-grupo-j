@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalGun : MonoBehaviour
@@ -6,6 +7,9 @@ public class PortalGun : MonoBehaviour
     [SerializeField] private GameObject orangePortalPrefab;
     public static Portal bluePortal;
     public static Portal orangePortal;
+    [SerializeField] private List<Transform> validPoints;
+    private float m_ValidPointOffset = 0.03f;
+    private float m_MaxValidAngle = 5.0f;
 
     [SerializeField] private Transform attachPosition;
 
@@ -48,13 +52,16 @@ public class PortalGun : MonoBehaviour
                 if (hit.collider.CompareTag("Turret") || hit.collider.CompareTag("Cube"))
                 {
                     AttachObject(hit.rigidbody);
-                    input.button1 = false;
+                    /*input.button1 = false;
                     input.button2 = false;
-                    return;
+                    return;*/
                 }
 
-                if (input.button1) CreateBluePortal(hit);
-                if (input.button2) CreateOrangePortal(hit);
+                if (hit.collider.CompareTag("Printable"))
+                {
+                    if (input.button1) CreateBluePortal(hit);
+                    if (input.button2) CreateOrangePortal(hit);
+                }
 
                 input.button1 = false;
                 input.button2 = false;
@@ -132,5 +139,54 @@ public class PortalGun : MonoBehaviour
         if (bluePortal == null) return;
         bluePortal.otherPortal = orangePortal;
         orangePortal.otherPortal = bluePortal;
+    }
+
+
+    public bool IsValidPoint(Vector3 position, Vector3 normal)
+    {
+        transform.position = position;
+        transform.rotation = Quaternion.LookRotation(normal);
+
+        bool isValid = true;
+        Vector3 playerCameraPos = Camera.main.transform.position;
+
+        for (int i = 0; i < validPoints.Count; i++)
+        {
+            Vector3 l_direction = validPoints[i].position - playerCameraPos;
+            float l_distance = l_direction.magnitude;
+            l_direction /= l_distance;
+
+            Ray l_ray = new Ray(playerCameraPos, l_direction);
+
+            if (Physics.Raycast(l_ray, out RaycastHit l_hit, l_distance + m_ValidPointOffset, m_ValidLayerMask.value))
+            {
+                if (l_hit.collider.CompareTag("Printable"))
+                {
+                    float l_distanceToHitPoint = (l_hit.point - validPoints[i].position).magnitude;
+
+                    if (l_distanceToHitPoint < m_ValidPointOffset)
+                    {
+                        float l_dotAngle = Vector3.Dot(l_hit.normal, normal);
+                        if (l_dotAngle < Mathf.Cos(m_MaxValidAngle * Mathf.Deg2Rad))
+                        {
+                            isValid = false;
+                        }
+                    }
+                    else
+                    {
+                        isValid = false;
+                    }
+                }
+                else
+                {
+                    isValid = false;
+                }
+            }
+            else
+            {
+                isValid = false;
+            }
+        }
+        return isValid;
     }
 }

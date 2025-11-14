@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Turret
   - Cube
+  - Printable
   layers:
   - Default
   - TransparentFX

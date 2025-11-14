@@ -131,6 +131,7 @@ public class MovementController : MonoBehaviour, ITeleportable, IDamageable
 
     public void Teleport(Portal portal)
     {
+        if (portal.otherPortal == null) return;
         if (isTeleporting) return;
 
         characterController.enabled = false;
