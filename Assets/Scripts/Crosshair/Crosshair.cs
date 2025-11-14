@@ -15,6 +15,7 @@ namespace Crosshair
 
         private void Start()
         {
+            crosshair = GetComponent<Image>();
             crosshair.sprite = n;
         }
 
