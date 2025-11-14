@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MovementController : MonoBehaviour, ITeleportable
+public class MovementController : MonoBehaviour, ITeleportable, IDamageable
 {
     // Camera and rotation
     [Header("Camera")] [SerializeField] private GameObject pitchController;
@@ -149,5 +150,15 @@ public class MovementController : MonoBehaviour, ITeleportable
     public void EndTeleport()
     {
         isTeleporting = false;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        Die();
+    }
+
+    public void Die()
+    {
+        SceneManager.LoadScene(0);
     }
 }
